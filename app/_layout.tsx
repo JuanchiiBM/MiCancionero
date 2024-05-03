@@ -1,26 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { List } from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
 
-import ListSong from '../components/ListSong';
+import Content from './Content';
+import Header from './Header';
 
-const Index: React.FC = () => {
+const layout = () => {
     return (
+        <PaperProvider>
         <View style={styles.container}>
-            <List.Section>
-                <ListSong titleSong='Cancion'></ListSong>
-            </List.Section>
+            <Header />
+            <Content />
         </View>
+        </PaperProvider>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
     },
 });
 
-export default Index;
+export default layout;

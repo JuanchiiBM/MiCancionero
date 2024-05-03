@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Text } from 'react-native-paper';
 
 // create a component
 const Header: React.FC = () => {
     return (
         <View style={styles.container}>
-            <Text>Header</Text>
+            <Text variant='headlineMedium'>Header</Text>
         </View>
     );
 };
@@ -15,7 +16,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: 'white',
+        width: '100%'
     },
 });
 
