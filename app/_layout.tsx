@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { Slot } from 'expo-router';
 
 import Content from './Content';
 import Header from './Header';
@@ -10,7 +11,7 @@ const layout = () => {
         <PaperProvider>
         <View style={styles.container}>
             <Header />
-            <Content />
+            <Slot />
         </View>
         </PaperProvider>
     );

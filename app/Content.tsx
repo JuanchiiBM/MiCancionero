@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-import Index from './Index';
-import Footer from './Footer';
+import { List } from 'react-native-paper';
+import ListSong from '../components/ListSong';
 
 const Content: React.FC = () => {
     return (
         <View style={styles.container}>
-            <Index/>
-            <Footer />
+            <List.Section>
+                <ListSong titleSong='Cancion'></ListSong>
+            </List.Section>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 11,
+        flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
