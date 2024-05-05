@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                 rippleColor='#aaaaaa'
                 size={50}
                 mode="contained"
-                onPress={() => router.replace('/Song')}>
+                onPress={() => router.push('/Song')}>
             </IconButton>
         </View>
     );

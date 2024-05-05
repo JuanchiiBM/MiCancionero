@@ -12,7 +12,7 @@ const Song: React.FC = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 11,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
