@@ -5,7 +5,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { Slot } from 'expo-router';
 import Constants from 'expo-constants';
 
-import Content from './Content';
+import Footer from './Footer';
 import Header from './Header';
 
 const layout = () => {
@@ -15,6 +15,7 @@ const layout = () => {
                 <View style={styles.content}>
                     <Header />
                     <Slot />
+                    <Footer/>
                 </View>
             </PaperProvider>
         </SafeAreaView>

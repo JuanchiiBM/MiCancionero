@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
-import { useNavigation, useNavigationState } from '@react-navigation/native';
+import { usePathname, useRouter } from 'expo-router';
 import { IconButton } from 'react-native-paper';
 
 const Header: React.FC = () => {
-    const navigation = useNavigation();
-    const navigationState = useNavigationState((state) => state);
-    const [canGoBack, setCanGoBack] = useState(navigation.canGoBack());
-
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('state', () => {
-            setCanGoBack(navigation.canGoBack());
-        });
-
-        return unsubscribe;
-    }, [navigation]);
+    const router = useRouter()
+    const pathname = usePathname()
 
     return (
         <View style={styles.container}>
-            {canGoBack &&
+            {pathname === '/Song' &&
                 <IconButton
                     icon="arrow-left"
                     style={styles.arrow}
@@ -28,7 +19,7 @@ const Header: React.FC = () => {
                     rippleColor='transparent'
                     size={50}
                     mode="contained"
-                    onPress={() => navigation.goBack()}>
+                    onPress={() => router.replace('/')}>
                 </IconButton>
             }
 
