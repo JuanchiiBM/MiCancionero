@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import { IconButton, Modal, Portal, Button } from 'react-native-paper';
 import { useRouter, usePathname } from 'expo-router';
 
+import Notes from '@/components/Notes';
+
 
 const Footer: React.FC = () => {
     const router = useRouter()
@@ -32,7 +34,7 @@ const Footer: React.FC = () => {
                 <View style={styles.songContainer}>
                     <Portal>
                         <Modal visible={visible} onDismiss={hideModal} style={styles.modalStyle} contentContainerStyle={styles.modalContentStyle}>
-                            <Button><Text>#am</Text></Button>
+                            <Notes hideModal={hideModal}></Notes>
                         </Modal>
                     </Portal>
                     <IconButton
