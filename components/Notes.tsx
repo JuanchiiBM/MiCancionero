@@ -11,7 +11,6 @@ interface ImageMap {
 }
 
 const Notes: React.FC<Props> = ({ hideModal }) => {
-    const [cursorPosition, setCursorPosition] = React.useState({ x: 0, y: 0 });
     const [showImage, setShowImage] = React.useState(false);
     const [buttonText, setButtonText] = React.useState('');
 
@@ -22,8 +21,6 @@ const Notes: React.FC<Props> = ({ hideModal }) => {
     };
 
     const showNote = (event: GestureResponderEvent, text: string) => {
-        setCursorPosition({ x: event.nativeEvent.pageX, y: event.nativeEvent.pageY });
-        console.log(`${cursorPosition.x} & ${cursorPosition.y}`)
         setShowImage(true);
         setButtonText(text);
     };
@@ -34,18 +31,18 @@ const Notes: React.FC<Props> = ({ hideModal }) => {
         setShowImage(false);
         setButtonText('');
     }
-
+    
     return (
         <View style={styles.container}>
-            <Button onLongPress={(event) => showNote(event, '#C')} onPress={selectNote}>
+            <Button onPressOut={()=>setShowImage(false)} onLongPress={(event) => showNote(event, '#C')} onPress={selectNote}>
                 <Text>#C</Text>
             </Button>
-            <Button onLongPress={(event) => showNote(event, '#Dm')} onPress={selectNote}>
+            <Button onPressOut={()=>setShowImage(false)} onLongPress={(event) => showNote(event, '#Dm')} onPress={selectNote}>
                 <Text>#Dm</Text>
             </Button>
             {showImage && (
                 <Image
-                    style={[styles.img, { left: cursorPosition.x, top: cursorPosition.y }]}
+                    style={[styles.img, { left: 0, top: 0 }]}
                     source={imageMap[buttonText]}
                 />
             )}
@@ -57,12 +54,13 @@ const Notes: React.FC<Props> = ({ hideModal }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'space-around',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
     },
     img: {
-        width: 60,
-        height: 60,
+        width: '100%',
+        height: 300,
         position: 'absolute'
     }
 });
